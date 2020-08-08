@@ -31,7 +31,18 @@ const proffys = [
         weekday:[0, 2, 3, 4], 
         time_from:[720], 
         time_to:[1200]
-    }
+    }/*,
+    {
+        name:'Felipe Montano',
+        avatar: 'https://avatars2.githubusercontent.com/u/7559318?s=460&u=9b45fc98ab22e71efa4951eee14cf349a73411ec&v=4',
+        whatsapp: '19348554567',
+        bio: 'Muita experiencia com busca binária com kotlin no android',
+        subject: 'Artes',
+        cost: '40',
+        weekday: [0],
+        time_from:[720],
+        time_to: [1220]
+    }*/
 
 ]
 

@@ -1,10 +1,9 @@
 const database = require('sqlite-async')
 //criando o arquivo/iniciando-o
-database.open(__dirname + '/database.sqlite').then(execute)
 
 function execute(db){
     //criar tabelas do bd
-    db.exec(`
+    return db.exec(`
         CREATE TABLE IF NOT EXISTS proffys(
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT,
@@ -29,4 +28,6 @@ function execute(db){
         );
     `)
 }
+//exporta os dados para fora do arquivo q vai ser pego em outro arquivo com require
+module.exports = database.open(__dirname + '/database.sqlite').then(execute)
 
