@@ -1,16 +1,37 @@
+
+
+//sevidor
 const express = require('express')
 const server = express()
 
-server.use(express.static("public"))
-.get("/", (req, res) => {
-    return res.sendFile(__dirname+"/views/index.html")
+const {
+    pageLanding,
+    pageStudy,
+    pageGiveClasses,
+    saveClasses
+} = require('./pages')
+
+const nunjucks = require('nunjucks')
+
+//configurar nunjucks
+nunjucks.configure('src/views', {
+    express: server,
+    noCache:true
 })
-.get("/study", (req, res) => {
-    return res.send("pagina study")
-})
+
+//configuracao do servidor
+server
+
+.use(express.urlencoded({extended: true}))
+//configuracao dos arquivos staticos
+.use(express.static("public"))
+//rotas da aplicacao
+.get("/", pageLanding)
+.get("/study", pageStudy)
+.get("/give-classes", pageGiveClasses)
+.post("/save-classes", saveClasses)
 .listen(5500)
 
-console.log(__dirname)
 
 
 
